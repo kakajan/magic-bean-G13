@@ -10,7 +10,7 @@ left: 0;
 right: 0;
 }
 .main {
-    background-color: black;
+    background-color: #ccc;
 }
 .drawer {
     position: fixed;
