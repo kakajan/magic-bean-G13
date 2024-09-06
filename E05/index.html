@@ -24,7 +24,7 @@
             <div onclick="setNum(9)" class="btn">9</div>
           </div>
           <div class="col">
-            <div class="btn">*</div>
+            <div onclick="operate('*')" class="btn">*</div>
           </div>
           <div class="col">
             <div onclick="setNum(4)" class="btn">4</div>
@@ -36,7 +36,7 @@
             <div onclick="setNum(6)" class="btn">6</div>
           </div>
           <div class="col">
-            <div class="btn">-</div>
+            <div onclick="operate('-')" class="btn">-</div>
           </div>
           <div class="col">
             <div onclick="setNum(1)" class="btn">1</div>
@@ -48,19 +48,19 @@
             <div onclick="setNum(3)" class="btn">3</div>
           </div>
           <div class="col">
-            <div class="btn">+</div>
+            <div onclick="operate('+')" class="btn">+</div>
           </div>
           <div class="col">
-            <div class="btn">0</div>
+            <div onclick="setNum(0)" class="btn">0</div>
           </div>
           <div class="col">
-            <div class="btn">.</div>
+            <div onclick="setNum('.')" class="btn">.</div>
           </div>
           <div class="col">
-            <div class="btn">/</div>
+            <div onclick="operate('/')" class="btn">/</div>
           </div>
           <div class="col">
-            <div class="btn">=</div>
+            <div onclick="calculate()" class="btn">=</div>
           </div>
         </div>
       </div>      
