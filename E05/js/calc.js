@@ -48,5 +48,5 @@ function calculate() {
     result = partA / partB;
   }
 
-  screen.innerHTML = result;
+  screen.innerHTML = (+result).toLocaleString();
 }
