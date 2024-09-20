@@ -1,6 +1,7 @@
 const screen = document.querySelector(".screen");
 
 let screenNumber = "0",
+  result,
   partA,
   partB,
   operatorType,
@@ -30,29 +31,39 @@ function setNum(x) {
 
 function operate(type) {
   if (partA) {
-    calculate();
+    partB = +screenNumber;
+    if (partA && partB) {
+      calculate();
+    }
   } else {
+    console.log("a");
     partA = +screenNumber;
   }
+  screenNumber = "";
   operatorType = type;
   console.log(partA);
   helper = 1;
 }
 
 function calculate() {
-  partB = +screenNumber;
-
-  if (operatorType === "+") {
-    result = partA + partB;
-  } else if (operatorType === "-") {
-    result = partA - partB;
-  } else if (operatorType === "*") {
-    result = partA * partB;
-  } else {
-    result = partA / partB;
+  if (!partB && screenNumber.length > 0) {
+    partB = +screenNumber;
   }
-  partA = result;
-  helper = 1;
+  if (partB) {
+    if (operatorType === "+") {
+      result = partA + partB;
+    } else if (operatorType === "-") {
+      result = partA - partB;
+    } else if (operatorType === "*") {
+      result = partA * partB;
+    } else {
+      result = partA / partB;
+    }
+    partA = result;
+    screen.innerHTML = (+result).toLocaleString();
+  }
 
-  screen.innerHTML = (+result).toLocaleString();
+  helper = 1;
+  partB = null;
+  screenNumber = "";
 }
