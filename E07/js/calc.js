@@ -50,14 +50,18 @@ function calculate() {
     partB = +screenNumber;
   }
   if (partB) {
-    if (operatorType === "+") {
-      result = partA + partB;
-    } else if (operatorType === "-") {
-      result = partA - partB;
-    } else if (operatorType === "*") {
-      result = partA * partB;
-    } else {
-      result = partA / partB;
+    switch (operatorType) {
+      case "+":
+        result = partA + partB;
+        break;
+      case "-":
+        result = partA - partB;
+        break;
+      case "*":
+        result = partA * partB;
+        break;
+      default:
+        result = partA / partB;
     }
     partA = result;
     screen.innerHTML = (+result).toLocaleString();
