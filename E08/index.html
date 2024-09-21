@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E08</title>
+</head>
+<body>
+    <input type="text">
+    <button onclick="register()">Register</button>
+    <div id="screen"></div>
+    <script>
+        let studentList = ['Ali', 'Usher', 'Saeed']
+        const input = document.querySelector('input');
+        const screen = document.getElementById('screen');
+        input.addEventListener('keypress', function (event){
+            if(event.keyCode === 13) {
+                register()
+            }
+        })
+        let StringList = ''
+        function printRes () {
+            for(let i=0;i<studentList.length;i++) {
+                StringList += studentList[i]+'<br>'
+            }
+            screen.innerHTML = StringList;
+            StringList= ''
+        }
+        printRes();
+        function register() {
+            studentList.push(input.value);
+            printRes();
+            input.value = ''  
+            console.log(studentList);
+        }
+        function showInputData() {
+            alert(input.value)
+        }
+    </script>
+</body>
+</html>
