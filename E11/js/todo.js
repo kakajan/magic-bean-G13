@@ -4,7 +4,10 @@ const taskLists = document.querySelector(".taskLists");
 const doneLists = document.querySelector(".doneLists");
 const addBtn = document.querySelector(".addBtn");
 const editBtn = document.querySelector(".editBtn");
-const tasks = JSON.parse(localStorage.getItem("tasks"));
+let tasks = [];
+if (localStorage.getItem("tasks")) {
+   tasks = JSON.parse(localStorage.getItem("tasks"));
+}
 let currentTaskIndex;
 editBtn.style.display = "none";
 showList(generateListItems());
