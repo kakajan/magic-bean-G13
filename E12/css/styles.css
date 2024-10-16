@@ -10824,3 +10824,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.cartMenu {
+  right: 140px;
+  left: auto!important;
+}
