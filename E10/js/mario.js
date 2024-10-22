@@ -179,11 +179,15 @@ function updatePosition() {
     jumpPose();
     if (!jumping) {
       jumping = true;
-      for (let index = 0; index < 201; index++) {
+      for (let i = 0; i < 201; i +=10) {
         console.log(checkCollision(wallBlocks, mario));
-        
+
         if (!checkCollision(wallBlocks, mario)) {
-          mario.style.bottom = y + index + "px";
+          mario.style.bottom = y + i + "px";
+        } else {
+          if (i + mario.clientHeight < 180) {
+            mario.style.bottom = y + i + "px";
+          }
         }
       }
       setTimeout(() => {
@@ -216,20 +220,18 @@ function jumpPose() {
   mario.style.width = "80px";
   mario.style.height = "132px";
 }
-function checkCollision (x, y) {
+function checkCollision(x, y) {
   let m = y.getBoundingClientRect();
   let w = x.getBoundingClientRect();
-  console.log('mario Top '+m.top);
-  console.log('wall Bottom '+w.bottom);
-  
+  console.log("mario Top " + m.top);
+  console.log("wall Bottom " + w.bottom);
+
   // return w.left < m.right && w.bottom < m.top;
-  if (w.left < m.right) {
+  if (w.left < m.right && w.right > m.left) {
     if (w.bottom < m.top) {
       return true;
     } else {
       return false;
     }
   }
-
-
 }
